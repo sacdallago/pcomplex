@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        #container {
+            width:100%;
+            height: 100%;
+        }
+
+        #pcomplex {
+            min-width: 4em;
+            min-height: 4em;
+            margin: auto 0;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container">
+    <h1>Example</h1>
+    <div id="pcomplex">ALT-TXT: pcomplex visualization div</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">  </script>
+<script>
+    $(document).ready(function () {
+        $.ajax( {
+            type: 'GET',
+            url: "data.tsv",
+            error: function (jqXHR, textStatus, errorThrown) {
+                throw errorThrown;
+            },
+            success: function (data) {
+
+            }
+        });
+    });
+</script>
+</body>
+</html>
