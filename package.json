@@ -1,0 +1,40 @@
+{
+    "name": "PComplex",
+    "description": "A simple protein complex timeline visualization tool",
+    "version": "0.1.0",
+    "homepage": "https://github.com/sacdallago/pcomplex",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sacdallago/pcomplex.git"
+    },
+    "author": {
+        "name": "Christian Dallago",
+        "email": "code@dallago.us"
+    },
+    "license": "GPL-3.0",
+    "dependencies": {},
+    "devDependencies": {
+        "watchify": "latest",
+        "webpack": "latest"
+    },
+    "keywords": [
+        "bio",
+        "biology",
+        "bioinformatics",
+        "complex",
+        "protein",
+        "visualization",
+        "science"
+    ],
+    "main": "build/pcomplex.js",
+    "scripts": {
+        "watch": "webpack --progress --colors --watch",
+        "install": "webpack"
+    },
+    "contributors": [
+        "Christian Dallago <code@dallago.us> (https://github.com/sacdallago)"
+    ],
+    "bugs": {
+        "url": "https://github.com/sacdallago/pcomplex/issues"
+    }
+}
