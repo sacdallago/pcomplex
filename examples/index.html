@@ -27,7 +27,8 @@
     <div id="pcomplex">ALT-TXT: pcomplex visualization div</div>
 </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">  </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="../build/pcomplex.js"></script>
 <script>
     $(document).ready(function () {
         $.ajax( {
@@ -37,7 +38,9 @@
                 throw errorThrown;
             },
             success: function (data) {
-
+                let [parsedData, proteins] = PComplex.parseTSV(data);
+                let tracks = PComplex.getTracks(proteins, parsedData);
+                console.log(tracks);
             }
         });
     });
