@@ -12,7 +12,9 @@
         "email": "code@dallago.us"
     },
     "license": "GPL-3.0",
-    "dependencies": {},
+    "dependencies": {
+        "d3": "latest"
+    },
     "devDependencies": {
         "watchify": "latest",
         "webpack": "latest"
