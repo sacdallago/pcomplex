@@ -17,23 +17,7 @@
             min-width: 4em;
             min-height: 4em;
             margin: auto 0;
-        }
-
-
-        body { font: 12px Arial;}
-
-        path {
-            stroke: steelblue;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 1;
-            shape-rendering: crispEdges;
+            font-size: 1em;
         }
 
         .tooltip {
@@ -44,15 +28,14 @@
             left: 130px;
             padding: 10px;
             position: absolute;
-            text-align: center;
             top: 95px;
             z-index: 10;
             display: block;
             opacity: 0;
         }
 
-        .title{
-            font-size:16px;
+        .tooltip.show {
+            opacity: 1;
         }
     </style>
 </head>
@@ -75,7 +58,7 @@
             },
             success: function (data) {
                 let [parsedData, proteins] = PComplex.parseTSV(data);
-                let tracks = PComplex.getTracks(proteins, parsedData);
+                let tracks = PComplex.getTracks(parsedData);
                 PComplex.renderGraph(tracks, "#pcomplex");
             }
         });
