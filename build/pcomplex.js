@@ -16622,12 +16622,12 @@ class PComplex {
         let	xScale = d3
             .scaleLinear()
             .range([50, width])
-            .domain([minTemp,maxTemp]);
+            .domain([--minTemp, ++maxTemp]);
 
         let	yScale = d3
             .scaleLinear()
             .range([height, 50])
-            .domain([0,d3.max(proteins,function(d){return groupScale(d);})]);
+            .domain([-1,d3.max(proteins,function(d){return groupScale(d);})]);
 
         let xAxis = d3
             .axisBottom(xScale);
@@ -16635,7 +16635,6 @@ class PComplex {
         let yAxis = d3
             .axisLeft(yScale)
             .tickFormat(function (d) {
-                console.log(d);
                 return proteins[d];
             })
             .ticks(proteins.length);
@@ -16656,6 +16655,7 @@ class PComplex {
         //Create Y axis
         svg.append("g")
             .attr("transform", "translate(50,0)")
+            .style("stroke-width", "0")
             .attr("class", "y axis")
             .call(yAxis);
 
@@ -16667,8 +16667,6 @@ class PComplex {
 
             let arr = new Array(d.partners.length);
             for(let i=0;i<d.partners.length;i++){
-                console.log(groupScale(d.protein));
-
                 arr[i] = {
                     y: groupScale(d.protein),
                     x: d.partners[i].time,
@@ -16689,12 +16687,13 @@ class PComplex {
         let circleArray = groups.selectAll("g.circleArray")
             .data(function(d){return generate_array(d);});
 
-        circleArray.enter()
+        circleArray
+            .enter()
             .append('g')
             .attr("class", "circleArray")
             .append("circle")
-            .style("fill","black")
-            .attr("r", 5)
+            .style("fill", "#b4b4b4")
+            .attr("r", 7)
             .attr("cx", function(d,i) {return xScale(d.x);})
             .attr("cy", function(d,i) {return yScale(d.y);});
 
@@ -16716,6 +16715,7 @@ class PComplex {
                 tooltip.style('display', 'block');
                 tooltip.style('opacity',2);
 
+                circleArray.select('g.circleArray').style("fill", "#1ab450");
             })
             .on('mousemove', function(d) {
                 tooltip.style('top', (d3.event.layerY + 10) + 'px')
