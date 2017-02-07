@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 1</title>
+    <link rel='stylesheet' href='style.css'>
+    <style>
+        #pcomplex {
+            min-width: 4em;
+            min-height: 4em;
+            height: 25em;
+            width: 50em;
+            margin: auto 0;
+            font-size: 1em;
+        }
+
+        .tooltip {
+            background: #eee;
+            color: #333;
+            padding: .5em;
+            position: absolute;
+            z-index: 1;
+            display: none;
+        }
+
+        .tooltip.show {
+            display: inherit;
+        }
+
+        circle.show.origin {
+            fill: orange !important;
+        }
+
+        circle.show.partner {
+            fill: green !important;
+        }
+
+        path.show {
+            stroke: orange !important;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container">
+    <h1>Example 1</h1>
+    <p> In this example the tooltip follows the mouse hover. The circles that turn <span style="color: orange">orange</span> are the ones on the track,
+    while the ones that turn <span style="color: green">green</span> are the equivalent points on the tracks of the partners.</p>
+    <p> All of the style settings can be changed via CSS. See the other examples for more ideas on how to change settings.</p>
+    <div id="pcomplex" alt="ALT-TXT: pcomplex visualization div"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="../build/pcomplex.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax( {
+            type: 'GET',
+            url: "data.tsv",
+            error: function (jqXHR, textStatus, errorThrown) {
+                throw errorThrown;
+            },
+            success: function (data) {
+                let [parsedData, proteins] = PComplex.parseTSV(data);
+                let tracks = PComplex.getTracksFromData(parsedData);
+                rendering = new PComplex(tracks, {
+                    element: "#pcomplex"
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

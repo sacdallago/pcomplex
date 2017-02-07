@@ -16620,7 +16620,7 @@ class PComplex {
             return element.protein;
         });
         this.tracks = tracks;
-        this.options = options;
+        this.options = options || {};
         this.element = this.options.element || "#pcomplex";
 
         // Use self instead of this to avoid variable shadowing inside of forEach, map, filter,... functions.
@@ -16650,7 +16650,7 @@ class PComplex {
             .range([0, self.proteins.length-1]);
 
         // Get the boundingBox (to later calculate width and height) of the selected element (NEEDS TO BE AN ID and not a CLASS !!!!!)
-        let e = document.getElementById(self.options.element.substr(1, self.element.length));
+        let e = document.getElementById(self.element.substr(1, self.element.length));
         let positionInfo = e.getBoundingClientRect();
 
         // Set the dimensions of the canvas / graph
