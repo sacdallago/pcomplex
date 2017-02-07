@@ -34,6 +34,18 @@
         .tooltip.show {
             display: inherit;
         }
+
+        circle.show.origin {
+            fill: #b4ae34 !important;
+        }
+
+        circle.show.partner {
+            fill: #25b41a !important;
+        }
+
+        path.show {
+            stroke: #b4ae34 !important;
+        }
     </style>
 </head>
 
@@ -55,8 +67,10 @@
             },
             success: function (data) {
                 let [parsedData, proteins] = PComplex.parseTSV(data);
-                let tracks = PComplex.getTracks(parsedData);
-                PComplex.renderGraph(tracks, "#pcomplex");
+                let tracks = PComplex.getTracksFromData(parsedData);
+                rendering = new PComplex(tracks, {
+                    element: "#pcomplex"
+                });
             }
         });
     });
