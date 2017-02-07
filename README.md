@@ -17,10 +17,10 @@ You can use the compiled source directly in your webpages, for example:
 ```html
 <script src="path/to/pcomplex.js"></script>
 <script>
-    let text = "..." // Some Tab-Separated-Valued data source for protein complexes
-    let [parsedData, proteins] = PComplex.parseTSV(text);
-    let tracks = PComplex.getTracksFromData(parsedData);
-    let rendering = new PComplex(tracks, [options]);
+    var text = "..." // Some Tab-Separated-Valued data source for protein complexes
+    var [parsedData, proteins] = PComplex.parseTSV(text);
+    var tracks = PComplex.getTracksFromData(parsedData);
+    var rendering = new PComplex(tracks, [options]);
 <script>
 ```
 
