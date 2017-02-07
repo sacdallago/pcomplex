@@ -15,7 +15,7 @@ The repository is structured as follows:
     - The `lib` folder contains the sources (in this case, only one source with one class).
     - The `example` folder contains three examples of how to use this tool and how to modify appearance via CSS.
     - The `build` folder contains the built sources as one file called `pcomplex.js`
-    (this you can include in your web-page via the <script> tag).
+    (this you can include in your web-page via the /<script/> tag).
     **IMPORTANT** it is always best to rebuild the source before using the package (see following sections).
 
 ## Building the source
