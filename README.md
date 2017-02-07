@@ -10,19 +10,6 @@ To build this package you will need:
 - `watchify`: `npm install -G watchify` (the `-G` options will install Webpack globally). You can use
         watchify to keep rebuilding the source if you are working in the `lib` folders.
 
-## Structure
-The repository is structured as follows:
-
-- The `lib` folder contains the sources (in this case, only one source with one class).
-- The `example` folder contains three examples of how to use this tool and how to modify appearance via CSS.
-- The `build` folder contains the built sources as one file called `pcomplex.js`
-    (this you can include in your web-page via the \<script\> tag).  
-    **IMPORTANT** it is always best to rebuild the source before using the package (see following sections).
-
-## Building the source
-After you have installed Webpack, you will just need to run `webpack` via terminal from the root of this repository.
-This will automatically overwrite (or create) the file `build/pcomplex.js`.
-
 ## Using the tool
 You can use the compiled source directly in your webpages, for example:
 
@@ -59,3 +46,25 @@ There are three examples of how you can customize the visualization:
   1. [Example 1](https://sacdallago.github.io/pcomplex/examples/example1.html): This is a normal use-case scenario with mild customizations.
   2. [Example 2](https://sacdallago.github.io/pcomplex/examples/example2.html): This is an advanced use-case scenario with many customizations.
   3. [Example 3](https://sacdallago.github.io/pcomplex/examples/example3.html): This is a very basic use-case scenario with almost no customizations.
+
+## Functions
+The tool offers two static functions and a constructor for the rendering of the graph/tracks.
+- [STATIC] `let [parsedData, proteins] = PComplex.parseTSV(text)`: can be used to parse a tab-separated valued data source into
+an array containing the JSON representation of the TSV data (`parsedData`) and a `Set` containing unique protein identifiers
+(`proteins`)
+- [STATIC] `let tracks = PComplex.getTracksFromData(parsedData)`: can be used to convert the JSON representation of a TSV associated to
+protein complex data in an array of tracks
+- `new PComplex(tracks, {element: '#someID'})`: used to render the tracks graph on an HTML elmenet with `id` equal to `someID`.
+
+## Structure
+The repository is structured as follows:
+
+- The `lib` folder contains the sources (in this case, only one source with one class).
+- The `example` folder contains three examples of how to use this tool and how to modify appearance via CSS.
+- The `build` folder contains the built sources as one file called `pcomplex.js`
+    (this you can include in your web-page via the \<script\> tag).  
+    **IMPORTANT** it is always best to rebuild the source before using the package (see following sections).
+
+## Building the source
+After you have installed Webpack, you will just need to run `webpack` via terminal from the root of this repository.
+This will automatically overwrite (or create) the file `build/pcomplex.js`.
