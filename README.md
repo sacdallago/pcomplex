@@ -21,7 +21,7 @@ You can use the compiled source directly in your webpages, for example:
     let [parsedData, proteins] = PComplex.parseTSV(text);
     let tracks = PComplex.getTracksFromData(parsedData);
     let rendering = new PComplex(tracks, [options]);
-<script>
+</script>
 ```
 
 NB: The options parameter can be omitted. Available options are:
