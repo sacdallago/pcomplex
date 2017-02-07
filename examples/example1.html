@@ -2,17 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Example</title>
-
+    <title>Example 1</title>
+    <link rel='stylesheet' href='style.css'>
     <style>
-        h1 {
-            text-align: center;
-        }
-        #container {
-            width:100%;
-            height: 100%;
-        }
-
         #pcomplex {
             min-width: 4em;
             min-height: 4em;
@@ -36,22 +28,25 @@
         }
 
         circle.show.origin {
-            fill: #b4ae34 !important;
+            fill: orange !important;
         }
 
         circle.show.partner {
-            fill: #25b41a !important;
+            fill: green !important;
         }
 
         path.show {
-            stroke: #b4ae34 !important;
+            stroke: orange !important;
         }
     </style>
 </head>
 
 <body>
 <div id="container">
-    <h1>Example</h1>
+    <h1>Example 1</h1>
+    <p> In this example the tooltip follows the mouse hover. The circles that turn <span style="color: orange">orange</span> are the ones on the track,
+    while the ones that turn <span style="color: green">green</span> are the equivalent points on the tracks of the partners.</p>
+    <p> All of the style settings can be changed via CSS. See the other examples for more ideas on how to change settings.</p>
     <div id="pcomplex" alt="ALT-TXT: pcomplex visualization div"></div>
 </div>
 
