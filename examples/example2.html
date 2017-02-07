@@ -2,37 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Example 1</title>
+    <title>Example 2</title>
     <link rel='stylesheet' href='style.css'>
     <style>
-        #pcomplex {
+        #test {
             min-width: 4em;
             min-height: 4em;
-            height: 25em;
-            width: 50em;
-            margin: auto 0;
+            height: 20em;
+            width: 100%;
             font-size: 1em;
         }
 
-        .tooltip {
-            background: #eee;
-            color: #333;
-            padding: .5em;
-            position: absolute;
-            z-index: 1;
+        .x.axis > path {
+            stroke: gray;
+        }
+
+        .x.axis > g.tick {
+            font-size: 2em;
+        }
+
+        .y.axis > g text {
+            fill: orange;
+        }
+
+        path {
+            font-size: 2em;
+        }
+
+        .x.label {
             display: none;
+        }
+
+        .tooltip {
+            padding: .5em;
+        }
+
+        .tooltip > .partner {
+            color: green;
+        }
+
+        .tooltip > .origin {
+            color: orange;
         }
 
         .tooltip.show {
             display: inherit;
         }
 
-        circle.show.origin {
-            fill: orange !important;
-        }
-
         circle.show.partner {
-            fill: green !important;
+            stroke: green !important;
+            stroke-width: .2em;
         }
 
         path.show {
@@ -43,11 +62,14 @@
 
 <body>
 <div id="container">
-    <h1>Example 1</h1>
-    <p> In this example the tooltip follows the mouse hover. The circles that turn <span style="color: orange">orange</span> are the ones on the track,
-    while the ones that turn <span style="color: green">green</span> are the equivalent points on the tracks of the partners.</p>
-    <p> All of the style settings can be changed via CSS. See the other examples for more ideas on how to change settings.</p>
-    <div id="pcomplex" alt="ALT-TXT: pcomplex visualization div"></div>
+    <h1>Example 2</h1>
+    <a href="https://sacdallago.github.io/pcomplex">GO BACK</a>
+    <p> In this example the tooltip is fixed at the bottom of the graph (hover over an element to display it). The circles with a <span style="color: green">green</span> stroke
+        are the equivalent points of the selected track on the tracks of the partner proteins.</p>
+    <p> The tracks/paths have been made bigger via CSS (by chaning the EM measure of the font, on which the width of the track is based).</p>
+    <p> The label on the X axis for time has been hidden, the axis made smaller and the ticks made bigger. On the Y axis the ticks are orange.</p>
+    <p> All of the style settings can be changed via CSS (look at the soruce of this file, the <strong>style</strong> section in the head). See the other examples for more ideas on how to change these.</p>
+    <div id="test" alt="ALT-TXT: pcomplex visualization div"></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -63,8 +85,8 @@
             success: function (data) {
                 let [parsedData, proteins] = PComplex.parseTSV(data);
                 let tracks = PComplex.getTracksFromData(parsedData);
-                rendering = new PComplex(tracks, {
-                    element: "#pcomplex"
+                let rendering = new PComplex(tracks, {
+                    element: "#test"
                 });
             }
         });

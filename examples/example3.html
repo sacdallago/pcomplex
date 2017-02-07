@@ -2,22 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Example 1</title>
+    <title>Example 3</title>
     <link rel='stylesheet' href='style.css'>
     <style>
-        #pcomplex {
-            min-width: 4em;
-            min-height: 4em;
-            height: 25em;
-            width: 50em;
-            margin: auto 0;
-            font-size: 1em;
+        #basic {
+            height: 20em;
+            width: 40em;
         }
 
         .tooltip {
-            background: #eee;
-            color: #333;
-            padding: .5em;
             position: absolute;
             z-index: 1;
             display: none;
@@ -26,29 +19,16 @@
         .tooltip.show {
             display: inherit;
         }
-
-        circle.show.origin {
-            fill: orange !important;
-        }
-
-        circle.show.partner {
-            fill: green !important;
-        }
-
-        path.show {
-            stroke: orange !important;
-        }
     </style>
 </head>
 
 <body>
 <div id="container">
-    <h1>Example 1</h1>
+    <h1>Example 3</h1>
     <a href="https://sacdallago.github.io/pcomplex">GO BACK</a>
-    <p> In this example the tooltip follows the mouse hover. The circles that turn <span style="color: orange">orange</span> are the ones on the track,
-    while the ones that turn <span style="color: green">green</span> are the equivalent points on the tracks of the partners.</p>
+    <p> Basic example with tooltip on hover and no color changes.</p>
     <p> All of the style settings can be changed via CSS (look at the soruce of this file, the <strong>style</strong> section in the head). See the other examples for more ideas on how to change these.</p>
-    <div id="pcomplex" alt="ALT-TXT: pcomplex visualization div"></div>
+    <div id="basic" alt="ALT-TXT: pcomplex visualization div"></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -64,7 +44,9 @@
             success: function (data) {
                 let [parsedData, proteins] = PComplex.parseTSV(data);
                 let tracks = PComplex.getTracksFromData(parsedData);
-                rendering = new PComplex(tracks);
+                let rendering = new PComplex(tracks, {
+                    element: "#basic"
+                });
             }
         });
     });
