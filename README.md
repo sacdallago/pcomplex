@@ -5,7 +5,8 @@ Small visualization utility to visualize protein complexes.
 This package is unpublished, thus only people with access to the source can use it. Ideally, you would be able to download
 the package via a registry, such as NPM. In the case of unpublished packages though, the best approach is to build the tool
 and use the built javascript file for your application.
-To build this package you will need:  
+To build this package you will need:
+
 - `webpack`: `npm install -G webpack` (the `-G` options will install Webpack globally).
 - `watchify`: `npm install -G watchify` (the `-G` options will install Webpack globally). You can use
         watchify to keep rebuilding the source if you are working in the `lib` folders.
@@ -24,6 +25,7 @@ You can use the compiled source directly in your webpages, for example:
 ```
 
 NB: The options parameter can be omitted. Available options are:
+
 - `element`: The element which will be used to render the tracks.
 
 **IMPORTANT** The element on which the graph/tracks will be rendered **must** be passed via its `id` (not via `class`)
